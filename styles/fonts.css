@@ -4,10 +4,9 @@
   font-style: normal;
   font-weight: 400;
   src: local(''),
-        url('../fonts/alegreya-v29-latin-regular.woff') format('woff'), /* Modern Browsers */
-        url('../fonts/alegreya-v29-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../fonts/alegreya-v29-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('../fonts/alegreya-v29-latin-regular.svg#Alegreya') format('svg'); /* Legacy iOS */
+        url('../fonts/alegreya-v29-latin-regular.woff2') format('woff2'), /* Super Modern Browsers - smallest file */
+        url('../fonts/alegreya-v29-latin-regular.woff') format('woff'); /* Fallback for older browsers */
+  font-display: swap;
 }
 /* alegreya-900 - latin */
 @font-face {
@@ -15,8 +14,7 @@
   font-style: normal;
   font-weight: 900;
   src: local(''),
-        url('../fonts/alegreya-v29-latin-900.woff') format('woff'), /* Modern Browsers */
-        url('../fonts/alegreya-v29-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../fonts/alegreya-v29-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('../fonts/alegreya-v29-latin-900.svg#Alegreya') format('svg'); /* Legacy iOS */
+        url('../fonts/alegreya-v29-latin-900.woff2') format('woff2'), /* Super Modern Browsers - smallest file */
+        url('../fonts/alegreya-v29-latin-900.woff') format('woff'); /* Fallback for older browsers */
+  font-display: swap;
 }
