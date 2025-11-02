@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="styles/index.css" />
   <link rel="preload" href="background.jpg" as="image">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preload" href="fonts/alegreya-v29-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/alegreya-v29-latin-900.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
@@ -15,59 +14,11 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vuex"></script>
   <script>
-    // Adobe Target pre-hiding code snippet 
-    ;(function(win, doc, style, timeout) {
-      var STYLE_ID = 'at-body-style';
-
-      function getParent() {
-        return doc.getElementsByTagName('head')[0];
-      }
-
-      function addStyle(parent, id, def) {
-        if (!parent) {
-          return;
-        }
-
-        var style = doc.createElement('style');
-        style.id = id;
-        style.innerHTML = def;
-        parent.appendChild(style);
-      }
-
-      function removeStyle(parent, id) {
-        if (!parent) {
-          return;
-        }
-
-        var style = doc.getElementById(id);
-
-        if (!style) {
-          return;
-        }
-
-        parent.removeChild(style);
-      }
-
-      addStyle(getParent(), STYLE_ID, style);
-      setTimeout(function() {
-        removeStyle(getParent(), STYLE_ID);
-      }, timeout);
-    }(window, document, "body {opacity: 0 !important}", 3000));
-  </script>
-  <script>
     // advertisment mock
     const initAd = () => {
       const adSpace = document.querySelector('.main__advertising');
       const gif = '<div style="width:400px;max-width:100%;"><div style="height:0;padding-bottom:52.4%;position:relative;"><iframe width="500" height="262" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/6wy03z"></iframe></div></div>';
       setTimeout(() => adSpace.innerHTML = gif, 3000);
-    };
-    // Slow JS
-    function wait(ms) {
-      var start = Date.now(),
-      now = start;
-      while (now - start < ms) {
-        now = Date.now();
-      }
     };
 
     // async CSS
@@ -75,7 +26,6 @@
       $('head').append(`<link rel="stylesheet" type="text/css" href="styles/mobile.css">`);
     };
 
-    wait(2000);
     window.addEventListener('load', () => {
       initAd();
       loadMobileCSS();
@@ -94,11 +44,11 @@
     <cookie-layer class="cookieLayer__base" v-show="displayCookieBox" v-on:accept="acceptCookies()"/>
   </div>
   <header class="header__base">
-    <div class="header__content">
+    <section class="header__content">
       <a class="header__logo" href="#">
         <img class="header__image" src="./logo.png">
       </a>
-      <div class="header__navigation">
+      <nav class="header__navigation">
         <ul class="navigation__list">
           <li class="navigation__item">
             <a class="navigation__link" href="#">
@@ -116,8 +66,8 @@
             </a>
           </li>
         </ul>
-      </div>
-    </div>
+      </nav>
+    </section>
   </header>
 
   <main class="main__base">
@@ -209,7 +159,7 @@
         <a href="https://www.netcentric.biz/legal/imprint.html" class="footer__link">Imprint</a>
         <a href="https://www.netcentric.biz/legal/privacy.html" class="footer__link">Privacy</a>
 	  </nav>
-      <i class="footer__sponsor">Powered by <a href="https://www.netcentric.biz/">Cognizant Netcentric</a></i>
+      <div class="footer__sponsor">Powered by <a href="https://www.netcentric.biz/">Cognizant Netcentric</a></div>
     </section>
   </footer>
   <script src="script/app.js"></script>
