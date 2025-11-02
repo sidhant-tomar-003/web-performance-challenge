@@ -5,25 +5,50 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- Critical CSS - blocks render -->
   <link rel="stylesheet" href="styles/generics.css" />
   <link rel="stylesheet" href="styles/variables.css" />
   <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/components/teaser.css" />
-  <link rel="stylesheet" href="styles/components/logo.css" />
   <link rel="stylesheet" href="styles/components/header.css" />
-  <link rel="stylesheet" href="styles/components/footer.css" />
+  <link rel="stylesheet" href="styles/components/logo.css" />
   <link rel="stylesheet" href="styles/components/hero.css" />
-  <link rel="stylesheet" href="styles/components/disclaimer.css" />
-  <link rel="stylesheet" href="styles/components/swiper.css" />
-  <link rel="stylesheet" href="styles/components/form.css" />
-  <link rel="stylesheet" href="styles/components/cookieLayer.css" />
-  <link rel="stylesheet" href="styles/fonts.css" />
+
+  <!-- Non-critical CSS - deferred with media print trick -->
+  <link rel="stylesheet" href="styles/components/teaser.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles/components/footer.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles/components/disclaimer.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles/components/swiper.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles/components/form.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles/components/cookieLayer.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="styles/fonts.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 750px)" />
+
+  <!-- Fallback for JS disabled -->
+  <noscript>
+    <link rel="stylesheet" href="styles/components/teaser.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/disclaimer.css">
+    <link rel="stylesheet" href="styles/components/swiper.css">
+    <link rel="stylesheet" href="styles/components/form.css">
+    <link rel="stylesheet" href="styles/components/cookieLayer.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+  </noscript>
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <link rel="preload" href="fonts/alegreya-v29-latin-regular.woff2" as="font" type="font/woff2">
   <link rel="preload" href="fonts/alegreya-v29-latin-900.woff2" as="font" type="font/woff2">
-  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js" defer></script>
+
+  <!-- Defer non-critical third-party CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" media="print" onload="this.media='all'"/>
+
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  </noscript>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script>
     // advertisment mock
     const initAd = () => {
@@ -36,9 +61,6 @@
       initAd();
     });
   </script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js" defer></script>
   <title>The Rum Diary</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
@@ -88,7 +110,11 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide"><img src="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=1170&q=75" alt="Slider image" width="1170" height="780" fetchpriority="high"></div>
+            <div class="swiper-slide"><img src="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=1170&q=75"
+              srcset="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=600&q=75 600w,
+                      https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=1170&q=75 1170w"
+              sizes="(max-width: 750px) 100vw, 1170px"
+              alt="Slider image" width="1170" height="780" fetchpriority="high"></div>
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
           </div>
@@ -96,43 +122,63 @@
         </div>
         
         <div class="hero__teaser div2">
-          <img src="assets/waterfalls.webp" data-src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&h=400&q=75" class="hero__img lazy" alt="Waterfalls analysis hero image" width="600" height="400">
+          <img src="assets/waterfalls.webp"
+            data-src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&h=400&q=75"
+            data-srcset="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=400&h=267&q=75 400w,
+                         https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&h=400&q=75 600w"
+            data-sizes="(max-width: 750px) 100vw, 50vw"
+            class="hero__img lazy" alt="Waterfalls analysis hero image" width="600" height="400">
           <div class="hero__teaserText">Top 10 waterfalls to analyse this week</div>
         </div>
         <div class="hero__teaser div3">
-          <img src="assets/bounce.webp" data-src="https://images.unsplash.com/photo-1646271912756-44f11896cfea?auto=format&fit=crop&w=600&h=400&q=75" class="hero__img lazy" alt="Bounce rate analysis hero image" width="600" height="400">
+          <img src="assets/bounce.webp"
+            data-src="https://images.unsplash.com/photo-1646271912756-44f11896cfea?auto=format&fit=crop&w=600&h=400&q=75"
+            data-srcset="https://images.unsplash.com/photo-1646271912756-44f11896cfea?auto=format&fit=crop&w=400&h=267&q=75 400w,
+                         https://images.unsplash.com/photo-1646271912756-44f11896cfea?auto=format&fit=crop&w=600&h=400&q=75 600w"
+            data-sizes="(max-width: 750px) 100vw, 50vw"
+            class="hero__img lazy" alt="Bounce rate analysis hero image" width="600" height="400">
           <div class="hero__teaserText">Bouncing rates increased signifincantly last week</div>
         </div>
       </div>
 
       <div class="main__teasers main__section">
         <article class="teaser__base">
-          <img class="teaser__image" src="https://images.unsplash.com/photo-1631857455684-a54a2f03665f?auto=format&fit=crop&w=600&q=75" alt="First party article thumbnail" width="600" height="400" loading="lazy"><hr>
+          <img class="teaser__image"
+            src="https://images.unsplash.com/photo-1631857455684-a54a2f03665f?auto=format&fit=crop&w=600&q=75"
+            srcset="https://images.unsplash.com/photo-1631857455684-a54a2f03665f?auto=format&fit=crop&w=400&q=75 400w,
+                    https://images.unsplash.com/photo-1631857455684-a54a2f03665f?auto=format&fit=crop&w=600&q=75 600w"
+            sizes="(max-width: 750px) 100vw, 33vw"
+            alt="First party article thumbnail" width="600" height="400" loading="lazy"><hr>
           <h1 class="teaser__title">First Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
         <article class="teaser__base">
-          <img class="teaser__image" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=600&q=75" alt="Second party article thumbnail" width="600" height="400" loading="lazy"><hr>
+          <img class="teaser__image"
+            src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=600&q=75"
+            srcset="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=400&q=75 400w,
+                    https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=600&q=75 600w"
+            sizes="(max-width: 750px) 100vw, 33vw"
+            alt="Second party article thumbnail" width="600" height="400" loading="lazy"><hr>
           <h1 class="teaser__title">Second Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
         <article class="teaser__base">
-          <img class="teaser__image" src="https://images.unsplash.com/photo-1496024840928-4c417adf211d?auto=format&fit=crop&w=600&q=75" alt="Third party article thumbnail" width="600" height="400" loading="lazy"><hr>
+          <img class="teaser__image"
+            src="https://images.unsplash.com/photo-1496024840928-4c417adf211d?auto=format&fit=crop&w=600&q=75"
+            srcset="https://images.unsplash.com/photo-1496024840928-4c417adf211d?auto=format&fit=crop&w=400&q=75 400w,
+                    https://images.unsplash.com/photo-1496024840928-4c417adf211d?auto=format&fit=crop&w=600&q=75 600w"
+            sizes="(max-width: 750px) 100vw, 33vw"
+            alt="Third party article thumbnail" width="600" height="400" loading="lazy"><hr>
           <h1 class="teaser__title">Third Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
       </div>
       
-      <div class="main__weather main__section">
-        <a class="weatherwidget-io" href="https://forecast7.com/en/48d1411d58/munich/" data-label_1="MUNICH" data-label_2="WEATHER" data-theme="original" >MUNICH WEATHER</a>
-        <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://blackhole.webpagetest.org/';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-        </script>
-      </div>
-      
+      <!-- Weather widget removed - was loading from blackhole.webpagetest.org (intentional bad practice) -->
+
       <div class="main__video main__section">
         <div id="video-container" style="position: relative; width: 640px; max-width: 100%; cursor: pointer;">
           <img src="assets/video-placeholder.webp" alt="Lighthouse video thumbnail" style="width: 100%; height: auto; display: block;">
