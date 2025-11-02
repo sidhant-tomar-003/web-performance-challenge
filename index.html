@@ -39,7 +39,7 @@
   <header class="header__base">
     <section class="header__content">
       <a class="header__logo" href="#">
-        <img class="header__image" src="./logo.png">
+        <img class="header__image" src="./logo.png" alt="logo">
       </a>
       <nav class="header__navigation">
         <ul class="navigation__list">
@@ -76,7 +76,7 @@
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
-            <div class="swiper-slide lazy"><img src="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=png&fit=crop&w=1170&q=100"></div>
+            <div class="swiper-slide lazy"><img src="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=png&fit=crop&w=1170&q=100" alt="Slider image"></div>
             <div class="swiper-slide"></div>
             <div class="swiper-slide"></div>
           </div>
@@ -95,19 +95,19 @@
 
       <div class="main__teasers main__section">
         <article class="teaser__base">
-          <img class="teaser__image" src="https://images.unsplash.com/photo-1631857455684-a54a2f03665f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=png&fit=crop&w=1170&q=100" class="card__img"><hr>
+          <img class="teaser__image" src="https://images.unsplash.com/photo-1631857455684-a54a2f03665f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=png&fit=crop&w=1170&q=100" class="card__img" alt="Another teaser image"><hr>
           <h1 class="teaser__title">First Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
         <article class="teaser__base">
-          <img class="teaser__image" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=pngfit=crop&w=1170&q=100" class="card__img"><hr>
+          <img class="teaser__image" src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=pngfit=crop&w=1170&q=100" class="card__img" alt="Another teaser image"><hr>
           <h1 class="teaser__title">Second Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
         </article>
         <article class="teaser__base">
-          <img class="teaser__image" src="https://images.unsplash.com/photo-1496024840928-4c417adf211d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=png&fit=crop&w=1170&q=100" class="card__img"><hr>
+          <img class="teaser__image" src="https://images.unsplash.com/photo-1496024840928-4c417adf211d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&fm=png&fit=crop&w=1170&q=100" class="card__img" alt="Another teaser image"><hr>
           <h1 class="teaser__title">Third Party</h1>
           <div class="teaser__text"></div>
           <button class="teaser__link">Read more</button>
@@ -123,18 +123,18 @@
       
       <div class="main__video main__section">
         <iframe src="https://player.vimeo.com/video/44265326?h=1e8b36c00b&autoplay=1&loop=1&byline=0&muted=1&controls=0 " width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-        <div class="form__base">
+        <form class="form__base">
           <div class="form__intro">Something about lighthouses, describing point of the video we are putting here to prove how awesome they really are, no.</div>
           <div class="from__control">
-            <label class="form__label">Name</label>
-            <input type="text" />
+            <label class="form__label" for="name">Name</label>
+            <input type="text" id="name"/>
           </div>
           <div class="from__control">
-            <label class="form__label">Please share with us why do you think lighthouses are awesome: </label>
-            <textarea></textarea>
+            <label class="form__label" for="lighthouse-thoughts">Please share with us why do you think lighthouses are awesome: </label>
+            <textarea id="lighthouse-thoughts"></textarea>
           </div>
-          <a class="form__button" id="button" onclick="alert('Submitting using way too much JavaScript...')">Submit</a>
-        </div>
+          <button class="form__button" id="button" type="submit">Submit</a>
+        </form>
     </div>
   </main>
   
