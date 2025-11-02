@@ -30,4 +30,23 @@
   .cookieLayer__base {
     bottom: 0;
   }
+
+  .main__video {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .main__video iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .form__base {
+    width: 100%;
+  }
+
+  .main__advertising {
+    padding: 20px;
+  }
 }
