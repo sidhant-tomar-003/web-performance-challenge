@@ -10,14 +10,6 @@
     height: 900px;
   }
 
-  .hero__carousel {
-    height: inherit;
-  }
-
-  .swiper-text {
-    top: 50%;
-  }
-
   .main__teasers {
     flex-direction: column;
 

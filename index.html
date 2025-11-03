@@ -25,7 +25,6 @@
   <link rel="stylesheet" href="styles/components/teaser.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/components/footer.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/components/disclaimer.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="styles/components/swiper.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/components/form.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/components/cookieLayer.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/fonts.css" media="print" onload="this.media='all'">
@@ -35,7 +34,6 @@
     <link rel="stylesheet" href="styles/components/teaser.css">
     <link rel="stylesheet" href="styles/components/footer.css">
     <link rel="stylesheet" href="styles/components/disclaimer.css">
-    <link rel="stylesheet" href="styles/components/swiper.css">
     <link rel="stylesheet" href="styles/components/form.css">
     <link rel="stylesheet" href="styles/components/cookieLayer.css">
     <link rel="stylesheet" href="styles/fonts.css">
@@ -46,16 +44,13 @@
 
   <!-- Defer non-critical third-party CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" media="print" onload="this.media='all'"/>
 
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
   </noscript>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script>
     // advertisment mock
     const initAd = () => {
@@ -109,24 +104,18 @@
     
     <div class="main__content">
       <div class="main__news main__section">
-        <div class="breaking-news" role="marquee" aria-live="off" style="line-height: 30px; background-color: #8B0000; color: #FFFFFF; padding: 5px 10px; overflow: hidden; white-space: nowrap; min-height: 40px;"></div>
+        <div class="breaking-news" role="marquee" aria-live="off" style="line-height: 30px; background-color: #8B0000; color: #FFFFFF; padding: 5px 10px; overflow: hidden; white-space: nowrap; height: 30px;"></div>
       </div>
       
       <div class="main__hero main__section">
-        <div class="hero__carousel div1 swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide"><img src="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=800&q=60"
-              srcset="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=600&q=60 600w,
-                      https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=800&q=60 800w,
-                      https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=1170&q=60 1170w"
-              sizes="(max-width: 750px) 100vw, 800px"
-              alt="Slider image" width="1170" height="780" fetchpriority="high"></div>
-            <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div>
-          </div>
-          <div class="swiper-text">Local restaurants finally optimising time to first bite</div>
+        <div class="hero__teaser div1">
+          <img src="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=800&q=60"
+            srcset="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=600&q=60 600w,
+                    https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=800&q=60 800w,
+                    https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=1170&q=60 1170w"
+            sizes="(max-width: 750px) 100vw, 800px"
+            alt="Person taking a bite of food" width="1170" height="780" fetchpriority="high">
+          <div class="hero__teaserText">Local restaurants finally optimising time to first bite</div>
         </div>
         
         <div class="hero__teaser div2">
@@ -231,5 +220,4 @@
     </section>
   </footer>
   <script src="script/app.js"></script>
-  <script src="script/carousel.js"></script>
 </body>
