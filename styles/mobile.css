@@ -83,4 +83,27 @@
     flex-direction: column;
     gap: 8px;
   }
+
+  /* Fix form going off-screen on mobile */
+  .form__base {
+    padding: 0 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .from__control input,
+  .from__control textarea {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .main__video {
+    padding: 0 15px;
+  }
+
+  .teaser__base {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
 }

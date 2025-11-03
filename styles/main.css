@@ -52,3 +52,8 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+.footer__base a {
+	text-decoration: none;
+	color: inherit;
+}

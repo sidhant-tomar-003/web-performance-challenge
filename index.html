@@ -5,6 +5,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+  <!-- Mobile-specific preloads for faster LCP -->
+  <link rel="preload" as="image" href="./logo.svg" media="(max-width: 750px)">
+  <link rel="preload" as="image" href="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=800&q=60" media="(max-width: 750px)" imagesrcset="https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=600&q=60 600w, https://images.unsplash.com/flagged/photo-1579632993381-847f6a71a3cd?auto=format&fit=crop&w=800&q=60 800w" imagesizes="100vw">
+
   <!-- Critical CSS - blocks render -->
   <link rel="stylesheet" href="styles/generics.css" />
   <link rel="stylesheet" href="styles/variables.css" />
@@ -12,6 +17,9 @@
   <link rel="stylesheet" href="styles/components/header.css" />
   <link rel="stylesheet" href="styles/components/logo.css" />
   <link rel="stylesheet" href="styles/components/hero.css" />
+
+  <!-- Mobile CSS - critical for mobile, loads immediately on mobile devices -->
+  <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 750px)" />
 
   <!-- Non-critical CSS - deferred with media print trick -->
   <link rel="stylesheet" href="styles/components/teaser.css" media="print" onload="this.media='all'">
@@ -21,7 +29,6 @@
   <link rel="stylesheet" href="styles/components/form.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/components/cookieLayer.css" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="styles/fonts.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 750px)" />
 
   <!-- Fallback for JS disabled -->
   <noscript>
